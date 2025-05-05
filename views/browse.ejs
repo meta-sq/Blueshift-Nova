@@ -1,0 +1,30 @@
+<%- include('./partials/header.ejs', { searchQuery: searchQuery }) %>
+
+<main>
+    <div id="product-section">
+        <% if (items.length > 0) { %>
+            <% items.forEach(item => { %>
+                <div class="product">
+                    <a href="/items/<%= item._id %>">
+                        <div class="product-content">
+                            <h5><%= item.title %></h5>
+                            <img src="data:image/png;base64,<%= item.image %>" alt="<%= item.title %>">
+                            <p>$<%= item.price %></p>
+                        </div>
+                    </a>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No items found matching your search.</p>
+        <% } %>
+    </div>
+
+    <div class="button-container">
+        <form action="/item/new" method="GET">
+            <button type="submit" class="add-button">Add your telescope!</button>
+        </form>
+    </div>
+</main>
+
+<%- include('./partials/footer.ejs')%>
+

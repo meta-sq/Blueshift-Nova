@@ -1,0 +1,53 @@
+<%- include('../partials/header.ejs') %>
+
+<main>
+  <div id="sell-content">
+    <div id="sell-item">
+      <h4>Update your offering</h4>
+    </div>
+
+    <div id="sell-form">
+      <form action="/items/<%= item._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        
+        <label for="status">Condition:</label>
+        <select id="status" name="status" required>
+          <option value="new" <%= item.status === "new" ? "selected" : "" %>>Brand New</option>
+          <option value="like-new" <%= item.status === "like-new" ? "selected" : "" %>>Excellent</option>
+          <option value="good" <%= item.status === "good" ? "selected" : "" %>>Good</option>
+          <option value="fair" <%= item.status === "fair" ? "selected" : "" %>>Fair</option>
+          <option value="used" <%= item.status === "used" ? "selected" : "" %>>Used</option>
+        </select>
+
+        <br><br>
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required value="<%= item.title || '' %>">
+
+        <br><br>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" min="0" max="1000000" required value="<%= item.price || '' %>">
+
+        <br><br>
+
+        <label for="description">Details:</label>
+        <textarea id="description" name="description" required><%= item.description || '' %></textarea>
+
+        <br><br>
+
+        <label for="image">Upload New Image (Optional):</label>
+        <input type="file" id="image" name="image" accept="image/*">
+
+        <% if (item.image) { %>
+          <br>
+          <img src="data:image/jpeg;base64,<%= item.image %>" alt="Current Image" style="max-width: 200px;">
+        <% } %>
+
+        <br><br>
+        <button type="submit">Submit Listing</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<%- include('../partials/footer.ejs') %>

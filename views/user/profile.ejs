@@ -1,0 +1,65 @@
+<%- include('../partials/header') %>
+
+<h1>Welcome, <%= currentUser.firstName %>!</h1>
+
+<% if (success) { %>
+  <div class="flash success"><%= success %></div>
+<% } %>
+
+<% if (error) { %>
+  <div class="flash error"><%= error %></div>
+<% } %>
+
+<% if (items.length === 0) { %>
+  <p>You haven’t listed any items yet.</p>
+<% } else { %>
+  <h2>Your Listed Items</h2>
+
+  <div class="item-grid">
+    <% items.forEach(item => { %>
+      <div class="item-card">
+        <% if (item.image) { %>
+          <img src="data:image/jpeg;base64,<%= item.image %>" alt="Item Image">
+        <% } else { %>
+          <img src="/images/placeholder.png" alt="Placeholder">
+        <% } %>
+
+        <h3><a href="/items/<%= item._id %>"><%= item.title %></a></h3>
+        <p>Status: <%= item.status %></p>
+
+        <div class="button-group">
+          <a class="btn" href="/items/<%= item._id %>/edit"><button>Edit</button></a>
+          <form action="/items/<%= item._id %>?_method=DELETE" method="POST" style="display:inline;">
+            <button class="btn delete" type="submit">Delete</button>
+          </form>
+        </div>
+
+        <form action="/items/<%= item._id %>/offers" method="GET" style="margin-top: 0.5rem;">
+          <button type="submit" <%= item.totalOffers === 0 ? 'disabled' : '' %>>View Offers</button>
+        </form>
+        
+      </div>
+    <% }) %>
+  </div>
+<% } %>
+
+<div class="my-offers">
+  <h3>Offers You Made</h3>
+  <% if (offers.length > 0) { %>
+    <ul>
+      <% offers.forEach(offer => { %>
+        <li class="offer-entry">
+          <span class="amount">$<%= offer.amount %></span>
+          on <a href="/items/<%= offer.item._id %>"><%= offer.item.title %></a>
+          — <span class="status"><%= offer.status %></span>
+        </li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>You haven't made any offers yet.</p>
+  <% } %>
+</div>
+
+
+
+<%- include('../partials/footer') %>

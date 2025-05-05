@@ -1,0 +1,49 @@
+<%- include('../partials/header.ejs')%>
+    <main>
+        <div id="sell-content">
+        <div id="sell-item">
+            <h4>Sell your telescope!</h4>
+            <p>Fill out the following form in<br>
+                order to upload your telescope<br> to
+                Blueshift Nova
+            </p>
+        </div>
+        <div id="sell-form">
+            <form action="/items" method="POST" enctype="multipart/form-data">
+                <label for="condition">Condition:</label>
+                <select id="condition" name="condition" required>
+                    <option value="">Select condition</option>
+                    <option value="new">Brand New</option>
+                    <option value="like-new">Excellent</option>
+                    <option value="good">Good</option>
+                    <option value="fair">Fair</option>
+                    <option value="used">Used</option>
+                </select>
+                
+                <br><br>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required placeholder="Enter title">
+                
+                <br><br>
+                <label for="seller">Seller:</label>
+                <input type="text" id="seller" name="seller" required placeholder="Seller name">
+                
+                <br><br>
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" step="0.01" min="0" max="1000000" required placeholder="Enter price">
+                
+                <br><br>
+                <label for="details">Details:</label>
+                <textarea id="details" name="details" required placeholder="Enter item details"></textarea>
+                
+                <br><br>
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" name="image" required accept="image/*">
+                
+                <br><br>
+                <button type="submit">Submit Listing</button>
+            </form>
+        </div>
+        </div>
+    </main>
+    <%- include('../partials/footer.ejs')%>

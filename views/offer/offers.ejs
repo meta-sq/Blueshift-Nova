@@ -1,0 +1,21 @@
+
+<%- include('../partials/header') %>
+
+<h2>Offers for: <%= item.title %></h2>
+
+<ul>
+<% offers.forEach(offer => { %>
+  <li>
+    $<%= offer.amount %> by <%= offer.buyer.firstName %>
+    <% if (item.active) { %>
+        <form method="POST" action="/items/<%= item._id %>/offers/<%= offer._id %>?_method=PUT">
+            <button type="submit">Accept</button>
+          </form>          
+    <% } else { %>
+      — <%= offer.status %>
+    <% } %>
+  </li>
+<% }) %>
+</ul>
+
+<%- include('../partials/footer') %>

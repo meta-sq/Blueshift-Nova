@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: "Montserrat", serif;
+}
+
+header {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    gap: 30%;
+}
+
+
+#logo {
+    height: 100%;
+}
+
+#logo img {
+    width: auto;
+    height: 100%;
+}
+
+#search-bar {
+    height: 100%;
+}
+
+#search-bar input {
+    box-shadow: none;
+    border: none;
+}
+
+.nav-menu {
+    height: 100%;
+}
+
+.nav-menu ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    gap: 3vh;
+}
+
+.nav-menu ul li {
+    height: 100%;
+    border-radius: 5%;
+    line-height: 15vh;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-menu ul li a:hover {
+    color: purple;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+main {
+    min-height: 75vh;
+    width:100%;
+    display: flex;
+    background-color: rgb(214, 236, 255);
+}
+
+.left {
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    padding-top: 10%;
+}
+
+.right {
+    height: 100%;
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.right  img {
+    width:100%;
+    height:100%;
+}
+
+#product-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+
+.product {
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.product-content {
+    width: 80%;
+    height: 80%;
+    background-color: rgb(192, 192, 192);
+    box-shadow: 0 3px 6px 0;
+}
+
+.product-content img {
+    width: 100%;
+    height: 60%;
+}
+
+#item {
+    border: 1px solid black;
+    height: 75%;
+    width: 40%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin:auto;
+    background-color: rgb(192, 192, 192);
+    box-shadow: 0 3px 6px 0;
+}
+
+#item-pic img {
+    width:100%;
+    height:100%;
+}
+
+#item .button {
+    border:1px solid black;
+    margin:auto;
+    margin-top: 2vh;
+    width:50%;
+    border-radius: 7%;
+    text-align: center;
+}
+
+.button img {
+    width: 20px;
+    height: 20px;
+}
+
+#edit-button {
+    background-color: rgba(15, 15, 131, 0.295);
+}
+
+#delete-button {
+    background-color: rgba(136, 0, 0, 0.541);
+}
+
+#sell-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2vh;
+    gap: 2vh;
+    margin: auto;
+}
+
+#sell-form {
+    background-color: rgba(211, 211, 211, 0.473);
+    box-shadow: 0 3px 6px 0;
+}
+
+footer {
+    background-color: rgb(41, 15, 90);
+    height: 10vh;
+    width:100%;
+    color:white;
+    display: flex;
+    padding-top: 3vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+
+#copyright{
+    width:50%;
+    height: 100%;
+}
+
+#social-media{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 3vh;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+
+.add-button {
+    padding: 15px 30px;
+    font-size: 20px; 
+    font-weight: bold;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #0056b3;
+}
+
+.item-card img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  
+  .my-offers {
+    background-color: #eef2ff; 
+    border: 2px solid #a78bfa; 
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .my-offers h3 {
+    color: #4f46e5;
+    margin-bottom: 1rem;
+  }
+  
+  .my-offers ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .offer-entry {
+    padding: 0.5rem;
+    border-bottom: 1px solid #c4b5fd; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .offer-entry:last-child {
+    border-bottom: none;
+  }
+  
+  .offer-entry .amount {
+    color: #3b82f6; 
+    font-weight: bold;
+  }
+  
+  .offer-entry .status {
+    color: #9333ea; 
+    font-style: italic;
+  }
+  

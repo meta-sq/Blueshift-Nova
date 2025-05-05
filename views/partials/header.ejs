@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueshift Nova</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="/">
+                <img src="../images/logo.png" alt="Blueshift Nova logo">
+            </a>
+        </div>
+
+        <div id="search-bar">
+            <form action="/items" method="GET">
+                <input type="text" name="search" placeholder="Search items..." value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>">
+                <button type="submit">Search</button>
+            </form>            
+        </div>
+
+        <div class="nav-menu">
+            <ul>
+                <li><a href="/items">Browse</a></li>
+                <li><a href="/items/new">Sell</a></li>
+
+                <% if (!locals.currentUser) { %>
+                    <li><a href="/users/new">SignUp</a></li>
+                    <li><a href="/users/login">Login</a></li>
+                <% } else { %>
+                    <li><a href="/users/profile">MyAccount</a></li>
+                    <li><a href="/users/logout">LogOut</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </header>
+
+    <% if (success) { %>
+        <div class="flash success"><%= success %></div>
+    <% } %>
+    <% if (error) { %>
+        <div class="flash error"><%= error %></div>
+    <% } %>

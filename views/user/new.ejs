@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<h1>Sign Up</h1>
+
+<% if (error) { %>
+  <div class="alert error"><%= error %></div>
+<% } %>
+
+<form action="/users" method="POST">
+  <label for="firstName">First Name:</label>
+  <input type="text" name="firstName" required>
+
+  <label for="lastName">Last Name:</label>
+  <input type="text" name="lastName" required>
+
+  <label for="email">Email:</label>
+  <input type="email" name="email" required>
+
+  <label for="password">Password:</label>
+  <input type="password" name="password" required>
+
+  <button type="submit">Sign Up</button>
+</form>
+
+<%- include('../partials/footer') %>
